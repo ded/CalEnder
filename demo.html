@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>CalEnder Demo</title>
+    <style type="text/css" media="screen">
+      body {
+        width: 600px;
+        margin: 0 auto;
+      }
+      h1 {
+        font: 100 46px/1.4 "lucida grande", lucida;
+        color: #555;
+      }
+      input {
+        font: 36px lucida grande, lucida, helvetica, arial;
+        padding: 10px;
+        border: 1px solid #999;
+      }
+    </style>
+    <link rel="stylesheet" href="./calender.css" type="text/css">
+    <script src="http://ender-js.s3.amazonaws.com/jeesh.min.js"></script>
+    <script src="./calender.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $('input').calender()
+      })
+    </script>
+  </head>
+  <body>
+    <h1>pick a date</h1>
+    <p><input type="text" name="some_date" value="" id="some_date"></p>
+  </body>
+</html>
