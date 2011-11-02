@@ -21,7 +21,7 @@
     "        <th>M</th>" +
     "        <th>T</th>" +
     "        <th>W</th>" +
-    "        <th>R</th>" +
+    "        <th>T</th>" +
     "        <th>F</th>" +
     "        <th>S</th>" +
     "      </tr>" +
