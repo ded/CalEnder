@@ -5,7 +5,7 @@
   , "homepage": "https://github.com/ded/calEnder"
   , "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
   , "keywords": ["ender", "calendar", "date", "datepicker", "datechooser", ""]
-  , "main": "./datepicker.js"
+  , "main": "./calender.js"
   , "ender": "noop"
   , "repository": {
       "type": "git"
