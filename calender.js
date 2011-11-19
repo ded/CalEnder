@@ -89,7 +89,7 @@
 
     this.$calendar.delegate('.date-month-next', 'click', function (e) {
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
-        , m = getMonthNumberFromName($('.date-current-month').html())
+        , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html())
       if ((m == 12)) ++y && (m = 0)
       self.setDate(months[m] + ' 1,' + y)
     })
