@@ -171,7 +171,6 @@
             calendar.$calendar.css({ left: offset.left, top: offset.top + offset.height}).addClass('active')
           })
           .bind('keydown blur', function (e) {
-            console.log(e)
             if (e.type == 'blur' || e.keyCode == 9) {
               calendar.$calendar.removeClass('active')
             }
