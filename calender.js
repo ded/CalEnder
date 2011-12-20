@@ -41,8 +41,10 @@
     this.formatDate = (this.options.formatDate || function(year, month, day) { 
         return [ month, day, year].join('-')
     });
+    this.weekStart = this.options.weekStart || 0;
 
-    var daysOfWeek = (this.options.daysOfWeek || 'S M T W R F S').split(' ');
+    var daysOfWeek = (this.options.daysOfWeek || 'S M T W T F S').split(' ');
+    daysOfWeek = daysOfWeek.slice(this.weekStart).concat(daysOfWeek.slice(0, this.weekStart));
     this.$calendar.find('.date-daysofweek').append('<th>' + daysOfWeek.join('</th><th>') + '</th>');
     
     this.$calendar.delegate('tbody td', 'mouseover', function () {
@@ -79,14 +81,14 @@
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
         , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html()) - 1
       if (--m == -1) --y && (m = 11)
-      self.setDate(self.months[m] + ' 1,' + y)
+      self.setDate([y, m + 1, 1].join('-'))
     })
 
     this.$calendar.delegate('.date-month-next', 'click', function (e) {
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
         , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html())
       if ((m == 12)) ++y && (m = 0)
-      self.setDate(self.months[m] + ' 1,' + y)
+      self.setDate([y, m + 1, 1].join('-'))
     })
 
     this.setDate((this.options.date || new Date()).toDateString())
@@ -98,13 +100,14 @@
       , daysInPreviousMonth = getDaysInMonth(
             d.getMonth() ? d.getFullYear() : d.getFullYear() - 1
           , d.getMonth() ? d.getMonth() - 1 : d.getMonth()
-        )
+        ) 
       , html = []
       , firstWeek = 1
       , theDay = 0
-      , dateBegin = daysInPreviousMonth - monthStart
+      , weekOffset = this.weekStart - (monthStart < this.weekStart? 7 : 0)
+      , dateBegin = daysInPreviousMonth - monthStart + weekOffset
       , daysInMonth = getDaysInMonth(d.getYear(), d.getMonth())
-      , remainingWeeks = Math.floor((daysInMonth + monthStart - 7) / 7)
+      , remainingWeeks = Math.floor((daysInMonth + monthStart - 7 - weekOffset) / 7)
       , i = 0
 
     this.$calendar.find('.date-current-year,.date-current-month,tbody.date-days').empty()
@@ -115,7 +118,7 @@
     while (dateBegin < daysInPreviousMonth) {
       html.push('<td class="inactive">' + (++dateBegin) + '</td>')
     }
-    while (monthStart < 7) {
+    while (monthStart < 7 + weekOffset) {
       html.push('<td>' + (++theDay) + '</td>')
       monthStart++
     }
