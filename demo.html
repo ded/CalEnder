@@ -20,15 +20,25 @@
     </style>
     <link rel="stylesheet" href="./calender.css" type="text/css">
     <script src="http://ender-js.s3.amazonaws.com/jeesh.min.js"></script>
-    <script src="./calender.min.js"></script>
+    <script src="./calender.js"></script>
     <script>
       $(document).ready(function () {
-        $('input').calender()
+        $('#some_date').calender();
+        $('#i18n_date').calender({
+          months: 'Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre',
+          daysOfWeek: 'D L M X J V S',
+          formatDate: function(year, month, day) { 
+            return [ day, month, year].join('/')
+          },
+          weekStart: 1
+        });
       })
     </script>
   </head>
   <body>
     <h1>pick a date</h1>
     <p><input type="text" name="some_date" value="" id="some_date"></p>
+    <h1>i18n'ed date</h1>
+    <p><input type="text" name="some_date" value="" id="i18n_date"></p>
   </body>
 </html>
