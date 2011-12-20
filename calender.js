@@ -17,25 +17,12 @@
     "        <th class='date-nav date-month-next'>&#8227;</th>" +
     "      </tr>" +
     "      <tr class='date-daysofweek'>" +
-    "        <th>S</th>" +
-    "        <th>M</th>" +
-    "        <th>T</th>" +
-    "        <th>W</th>" +
-    "        <th>R</th>" +
-    "        <th>F</th>" +
-    "        <th>S</th>" +
     "      </tr>" +
     "    </thead>" +
     "    <tbody class='date-days'></tbody>" +
     "  </table>" +
     "</div>"
 
-
-  var months = [
-      'January', 'February', 'March', 'April'
-    , 'May', 'June', 'July', 'August'
-    , 'September', 'October', 'November', 'December'
-  ]
 
   function isLeapYear(year) {
     return (((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0))
@@ -44,16 +31,20 @@
     return [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]
   }
 
-  function getMonthNumberFromName(name) {
-    return months.indexOf(name) + 1
-  }
-
 
   function Calendar (el, options) {
     var self = this
     this.options = options || {}
+    this.months = (this.options.months || 'January February March April May June July August September October November December').split(' ');
     this.$input = $(el).first()
     this.$calendar = $(template).appendTo('body')
+    this.formatDate = (this.options.formatDate || function(year, month, day) { 
+        return [ month, day, year].join('-')
+    });
+
+    var daysOfWeek = (this.options.daysOfWeek || 'S M T W R F S').split(' ');
+    this.$calendar.find('.date-daysofweek').append('<th>' + daysOfWeek.join('</th><th>') + '</th>');
+    
     this.$calendar.delegate('tbody td', 'mouseover', function () {
       $(this).closest('tbody').find('td:nth-child(' + (this.cellIndex + 1) + ')').addClass('hover')
     })
@@ -67,16 +58,20 @@
       e.preventDefault()
     })
 
+    var getMonthNumberFromName = function(name) {
+      return self.months.indexOf(name) + 1
+    }
+
     this.$calendar.delegate('tbody td', 'mouseout', function () {
       $(this).closest('tbody').find('td:nth-child(' + (this.cellIndex + 1) + ')').removeClass('hover')
     })
     this.$calendar.delegate('tbody td:not(.inactive)', 'click.day', function (e) {
       var day = $(this).html()
-      self.$input.val([
-          getMonthNumberFromName(self.$calendar.find('.date-current-month').html())
-        , day
-        , self.$calendar.find('.date-current-year').html()].join('-')
-      )
+      self.$input.val(self.formatDate(
+        self.$calendar.find('.date-current-year').html(),
+        getMonthNumberFromName(self.$calendar.find('.date-current-month').html()),
+        day
+      ))
       self.$calendar.removeClass('active')
     })
 
@@ -84,14 +79,14 @@
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
         , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html()) - 1
       if (--m == -1) --y && (m = 11)
-      self.setDate(months[m] + ' 1,' + y)
+      self.setDate(self.months[m] + ' 1,' + y)
     })
 
     this.$calendar.delegate('.date-month-next', 'click', function (e) {
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
         , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html())
       if ((m == 12)) ++y && (m = 0)
-      self.setDate(months[m] + ' 1,' + y)
+      self.setDate(self.months[m] + ' 1,' + y)
     })
 
     this.setDate((this.options.date || new Date()).toDateString())
@@ -114,7 +109,7 @@
 
     this.$calendar.find('.date-current-year,.date-current-month,tbody.date-days').empty()
     this.$calendar.find('.date-current-year').html(d.getFullYear())
-    this.$calendar.find('.date-current-month').html(months[d.getMonth()])
+    this.$calendar.find('.date-current-month').html(this.months[d.getMonth()])
 
     html.push('<tr>')
     while (dateBegin < daysInPreviousMonth) {
