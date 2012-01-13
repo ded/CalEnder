@@ -35,18 +35,18 @@
   function Calendar (el, options) {
     var self = this
     this.options = options || {}
-    this.months = (this.options.months || 'January February March April May June July August September October November December').split(' ');
+    this.months = (this.options.months || 'January February March April May June July August September October November December').split(' ')
     this.$input = $(el).first()
     this.$calendar = $(template).appendTo('body')
-    this.formatDate = (this.options.formatDate || function(year, month, day) { 
+    this.formatDate = (this.options.formatDate || function(year, month, day) {
         return [ month, day, year].join('-')
-    });
-    this.weekStart = this.options.weekStart || 0;
+    })
+    this.weekStart = this.options.weekStart || 0
 
-    var daysOfWeek = (this.options.daysOfWeek || 'S M T W T F S').split(' ');
-    daysOfWeek = daysOfWeek.slice(this.weekStart).concat(daysOfWeek.slice(0, this.weekStart));
-    this.$calendar.find('.date-daysofweek').append('<th>' + daysOfWeek.join('</th><th>') + '</th>');
-    
+    var daysOfWeek = (this.options.daysOfWeek || 'S M T W T F S').split(' ')
+    daysOfWeek = daysOfWeek.slice(this.weekStart).concat(daysOfWeek.slice(0, this.weekStart))
+    this.$calendar.find('.date-daysofweek').append('<th>' + daysOfWeek.join('</th><th>') + '</th>')
+
     this.$calendar.delegate('tbody td', 'mouseover', function () {
       $(this).closest('tbody').find('td:nth-child(' + (this.cellIndex + 1) + ')').addClass('hover')
     })
@@ -100,7 +100,7 @@
       , daysInPreviousMonth = getDaysInMonth(
             d.getMonth() ? d.getFullYear() : d.getFullYear() - 1
           , d.getMonth() ? d.getMonth() - 1 : d.getMonth()
-        ) 
+        )
       , html = []
       , firstWeek = 1
       , theDay = 0
