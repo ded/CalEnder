@@ -15,6 +15,6 @@
       "jeesh": "*"
   }
   , "scripts": {
-      "build": "node Makefile.js"
+      "build": "smoosh make Makefile.js"
   }
 }
