@@ -168,8 +168,8 @@
             e.stopPropagation()
             calendar.$calendar.css({ left: offset.left, top: offset.top + offset.height}).addClass('active')
           })
-          .bind('keydown', function (e) {
-            if (e.keyCode == 9) {
+          .bind('keydown blur', function (e) {
+            if (e.type == 'blur' || e.keyCode == 9) {
               calendar.$calendar.removeClass('active')
             }
           })
