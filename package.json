@@ -4,7 +4,7 @@
   , "version": "0.0.3"
   , "homepage": "https://github.com/ded/calEnder"
   , "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
-  , "keywords": ["ender", "calendar", "date", "datepicker", "datechooser", ""]
+  , "keywords": ["ender", "calendar", "date", "datepicker", "datechooser"]
   , "main": "./calender.js"
   , "ender": "noop"
   , "repository": {
@@ -16,8 +16,5 @@
   }
   , "scripts": {
       "build": "node Makefile.js"
-  }
-  , "devDependencies": {
-      "smoosh": "*"
   }
 }

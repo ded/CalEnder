@@ -1,2 +1,2 @@
 boosh:
-	node Makefile.js
+	smoosh make Makefile.js

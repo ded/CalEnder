@@ -1,4 +1,4 @@
-require('smoosh').config({
+{
   "JAVASCRIPT": {
     "DIST_DIR": "./",
     "calender": [
@@ -22,4 +22,4 @@ require('smoosh').config({
     , "laxbreak": true
     , "plusplus": false
   }
-}).run().build().analyze()
+}
