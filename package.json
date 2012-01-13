@@ -1,7 +1,7 @@
 {
     "name": "calender"
   , "description": "Simple, themable, Datepicker for Ender"
-  , "version": "0.0.3"
+  , "version": "0.0.4"
   , "homepage": "https://github.com/ded/calEnder"
   , "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
   , "keywords": ["ender", "calendar", "date", "datepicker", "datechooser"]
