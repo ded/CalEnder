@@ -38,6 +38,7 @@
     this.months = (this.options.months || 'January February March April May June July August September October November December').split(' ')
     this.$input = $(el).first()
     this.$calendar = $(template).appendTo('body')
+    this.$input.data('calender', this)
     this.formatDate = (this.options.formatDate || function(year, month, day) {
         return [ month, day, year].join('-')
     })
