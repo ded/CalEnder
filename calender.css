@@ -1,4 +1,4 @@
-.date {
+div.calender-date {
   width: 200px;
   font-size: 12px;
   font-family: lucida grande, lucida;
@@ -8,10 +8,10 @@
   -webkit-user-select: none;
   z-index: 999999999;
 }
-.date.active {
+div.calender-date.active {
   display: block;
 }
-.date table {
+div.calender-date table {
   width: 100%;
   background-color: #222;
   border-radius: 5px;
@@ -19,41 +19,41 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   cursor: default;
 }
-.date table tr.date-header th {
+div.calender-date table tr.date-header th {
   text-align: center;
 }
-.date table th.date-month-year {
+div.calender-date table th.date-month-year {
   color: yellow;
 }
-.date table tr.date-daysofweek th {
+div.calender-date table tr.date-daysofweek th {
   color: #aaa;
 }
-.date table tbody tr:hover,
-.date table tbody td.hover {
+div.calender-date table tbody tr:hover,
+div.calender-date table tbody td.hover {
   background-color: #333;
 }
-.date table td,
-.date table th {
+div.calender-date table td,
+div.calender-date table th {
   color: #fff;
   font-weight: bold;
   text-align: right;
   border: 0;
   padding: 5px;
 }
-.date table tbody td,
-.date tr.date-daysofweek th {
+div.calender-date table tbody td,
+div.calender-date tr.date-daysofweek th {
   border-right: 2px groove #444;
 }
-.date table tbody td:last-child,
-.date table tr.date-daysofweek th:last-child {
+div.calender-date table tbody td:last-child,
+div.calender-date table tr.date-daysofweek th:last-child {
   border-right-width: 0;
 }
-.date table td.today {
+div.calender-date table td.today {
   color: yellow;
 }
-.date table .inactive {
+div.calender-date table .inactive {
   color: #555;
 }
-.date-month-previous {
+div.calender-date-month-previous {
   -webkit-transform: rotate(180deg);
 }
