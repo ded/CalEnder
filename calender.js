@@ -40,7 +40,7 @@
     this.$calendar = $(template).appendTo('body')
     this.$input.data('calender', this)
     this.formatDate = (this.options.formatDate || function(year, month, day) {
-        return [ month, day, year].join('-')
+      return [month, day, year].join('-')
     })
     this.weekStart = this.options.weekStart || 0
 

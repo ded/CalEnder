@@ -17,9 +17,9 @@
     , "sub": true
     , "white": false
     , "indent": 2
-    , "whitespace": true
     , "asi": true
     , "laxbreak": true
     , "plusplus": false
+    , "laxcomma": true
   }
 }
