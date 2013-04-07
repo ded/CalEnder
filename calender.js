@@ -75,6 +75,7 @@
         day
       ))
       self.$calendar.removeClass('active')
+      self.$input.trigger('change')
     })
 
     this.$calendar.delegate('.date-month-previous', 'click', function (e) {
