@@ -6,7 +6,7 @@
 !function ($) {
 
   var template = "" +
-    "<div class='date'>" +
+    "<div class='calender-date'>" +
     "  <table>" +
     "    <thead>" +
     "      <tr class='date-header'>" +
