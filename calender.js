@@ -10,11 +10,11 @@
     "  <table>" +
     "    <thead>" +
     "      <tr class='date-header'>" +
-    "        <th class='date-nav date-month-previous'>&#8227;</th>" +
+    "        <th class='date-nav date-month-previous'>&#9668;</th>" +
     "        <th colspan='5' class='date-month-year'>" +
     "          <span class='date-current-month'></span>" +
     "          <span class='date-current-year'></span></th>" +
-    "        <th class='date-nav date-month-next'>&#8227;</th>" +
+    "        <th class='date-nav date-month-next'>&#9658;</th>" +
     "      </tr>" +
     "      <tr class='date-daysofweek'>" +
     "      </tr>" +
