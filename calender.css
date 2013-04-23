@@ -54,6 +54,8 @@ div.calender-date table td.today {
 div.calender-date table .inactive {
   color: #555;
 }
-div.calender-date-month-previous {
+div.calender-date .date-month-previous {
+  transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
 }

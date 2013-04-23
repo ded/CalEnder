@@ -153,7 +153,7 @@
 
     var now = new Date()
     if (d.getMonth() == now.getMonth() && d.getFullYear() == now.getFullYear()) {
-      this.$calendar.find('.date tbody.date-days td').each(function (el) {
+      this.$calendar.find('.calender-date tbody.date-days td').each(function (el) {
         if (el.innerHTML == now.getDate() && !$(el).hasClass('inactive')) $(el).addClass('today')
       })
     }
