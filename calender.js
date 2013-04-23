@@ -163,11 +163,11 @@
     calender: function (options) {
       $(this).forEach(function (el) {
         var $el = $(el)
-          , offset = $el.offset()
           , calendar = new Calendar(el, options)
         $el
           .bind('focus click', function (e) {
             e.stopPropagation()
+            offset = $el.offset()
             calendar.$calendar.css({ left: offset.left, top: offset.top + offset.height}).addClass('active')
           })
           .bind('keydown blur', function (e) {
