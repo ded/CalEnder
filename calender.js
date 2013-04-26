@@ -83,14 +83,14 @@
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
         , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html()) - 1
       if (--m == -1) --y && (m = 11)
-      self.setDate([y, m + 1, 1].join('-'))
+      self.setDate([y, m + 1, 1].join('/'))
     })
 
     this.$calendar.delegate('.date-month-next', 'click', function (e) {
       var y = parseFloat(self.$calendar.find('.date-current-year').html())
         , m = getMonthNumberFromName(self.$calendar.find('.date-current-month').html())
       if ((m == 12)) ++y && (m = 0)
-      self.setDate([y, m + 1, 1].join('-'))
+      self.setDate([y, m + 1, 1].join('/'))
     })
 
     this.setDate((this.options.date || new Date()).toDateString())
