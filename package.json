@@ -1,23 +1,29 @@
 {
-    "name": "calender"
-  , "description": "Simple, themable, Datepicker for Ender"
-  , "version": "1.0.1"
-  , "homepage": "https://github.com/ded/calEnder"
-  , "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
-  , "keywords": ["ender", "calendar", "date", "datepicker", "datechooser"]
-  , "main": "./calender.js"
-  , "ender": "noop"
-  , "repository": {
-      "type": "git"
-    , "url": "https://github.com/ded/calEnder.git"
-  }
-  , "dependencies": {
-      "jeesh": "*"
-  }
-  , "devDependencies": {
-      "smoosh": "*"
-  }
-  , "scripts": {
-      "build": "smoosh make Makefile.js"
+  "name": "calender",
+  "description": "Simple, themable, Datepicker for Ender",
+  "version": "1.0.2",
+  "homepage": "https://github.com/ded/calEnder",
+  "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
+  "keywords": [
+    "ender",
+    "calendar",
+    "date",
+    "datepicker",
+    "datechooser"
+  ],
+  "main": "./calender.js",
+  "ender": "noop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ded/calEnder.git"
+  },
+  "dependencies": {
+    "jeesh": "*"
+  },
+  "devDependencies": {
+    "smoosh": "*"
+  },
+  "scripts": {
+    "build": "smoosh make Makefile.js"
   }
 }
