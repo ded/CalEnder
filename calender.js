@@ -1,6 +1,6 @@
 /**
   * CalEnder: A Datepicker for Ender
-  * copyright Dustin Diaz @ded 2011 | License MIT
+  * copyright Dustin Diaz @ded 2014 | License MIT
   * https://github.com/ded/calEnder
   */
 !function ($) {

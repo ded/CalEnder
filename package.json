@@ -16,7 +16,6 @@
   }
   , "devDependencies": {
       "smoosh": "*"
-    , "console-browserify": "*"
   }
   , "scripts": {
       "build": "smoosh make Makefile.js"
