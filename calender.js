@@ -113,7 +113,7 @@
       , i = 0
 
     this.$calendar.find('.date-current-year,.date-current-month,tbody.date-days').empty()
-    this.$calendar.find('.date-current-year').html(d.getFullYear())
+    this.$calendar.find('.date-current-year').html(String(d.getFullYear()))
     this.$calendar.find('.date-current-month').html(this.months[d.getMonth()])
 
     html.push('<tr>')
