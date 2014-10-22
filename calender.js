@@ -175,6 +175,10 @@
               calendar.$calendar.removeClass('active')
             }
           })
+          $(window).on('scroll resize', function(){
+            var elmOffset = $(el).offset();
+            calendar.$calendar.css({'top': elmOffset.top + el.offsetHeight, 'left':elmOffset.left});
+          })
       })
     }
   }, true)
